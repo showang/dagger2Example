@@ -6,6 +6,8 @@ android:
     - build-tools-21.1.2
     - android-21
     - sys-img-armeabi-v7a-android-21
+    - add-on
+    - extra
 
   # Emulator Management: Create, Start and Wait
   before_script:

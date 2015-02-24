@@ -61,7 +61,7 @@ dependencies {
     compile 'com.android.support:appcompat-v7:21.0.3'
 
     //guava
-    compile 'com.google.guava:guava:18.0'
+//    compile 'com.google.guava:guava:18.0'
 
     //Dagger 2
     compile 'com.google.dagger:dagger:2.0-SNAPSHOT'
