@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Dagger2Prac</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="user_name">User Name:</string>
+    <string name="setting_changeUserName">Change</string>
+    <string name="main_error">Error!!!!</string>
+
+</resources>

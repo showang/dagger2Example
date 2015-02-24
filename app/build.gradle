@@ -1,0 +1,94 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.neenbedankt.android-apt'
+
+android {
+    compileSdkVersion 21
+    buildToolsVersion "21.1.2"
+
+    defaultConfig {
+        applicationId "com.newegg.tr.dagger2prac"
+        minSdkVersion 8
+        targetSdkVersion 21
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+//    jacoco {
+//        version = '0.6.2.201302030002'
+//    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
+    }
+    signingConfigs {
+        release {
+            storeFile file("/Users/william/Develope/android/keystore/release-test.keystore")
+            storePassword "keyword"
+            keyAlias "aliasTest"
+            keyPassword "keyword"
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+        debug {
+            minifyEnabled false
+            debuggable true
+            testCoverageEnabled = true
+        }
+    }
+
+
+
+
+    packagingOptions {
+        exclude 'LICENSE.txt'
+        exclude 'META-INF/services/javax.annotation.processing.Processor'
+    }
+}
+
+dependencies {
+
+//    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.support:appcompat-v7:21.0.3'
+
+    //guava
+    compile 'com.google.guava:guava:18.0'
+
+    //Dagger 2
+    compile 'com.google.dagger:dagger:2.0-SNAPSHOT'
+    apt 'com.google.dagger:dagger-compiler:2.0-SNAPSHOT'
+    androidTestApt 'com.google.dagger:dagger-compiler:2.0-SNAPSHOT'
+    provided 'javax.annotation:jsr250-api:1.0'
+//  Reference local dagger compiler jar，avoiding dagger are broken build.
+//    apt files('libs/dagger-producers-2.0-20150122.022620-1.jar')
+//    apt files('libs/dagger-compiler-2.0-20150122.022637-13.jar')
+//    apt files('libs/auto-common-1.0-20150122.001631-7.jar')
+//    apt 'com.squareup:javawriter:2.5.0'
+//    apt 'com.google.guava:guava:18.0'
+
+    //ButterKnife
+    compile 'com.jakewharton:butterknife:6.1.0'
+
+    //Mockito
+    debugCompile "org.mockito:mockito-core:1.9.5"
+    debugCompile "com.google.dexmaker:dexmaker:1.0"
+    debugCompile "com.google.dexmaker:dexmaker-mockito:1.0"
+
+    //Espresso 2
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.0') {
+        exclude group: 'javax.inject'
+    }
+    androidTestCompile 'com.android.support.test:testing-support-lib:0.1'
+
+    //Robolectric
+//    androidTestCompile 'org.robolectric:robolectric:2.3'
+
+}
